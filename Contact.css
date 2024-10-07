@@ -3,7 +3,7 @@
 }
 
 .u-section-1 .u-sheet-1 {
-  min-height: 479px;
+  min-height: 1082px;
 }
 
 .u-section-1 .u-image-1 {
@@ -16,7 +16,7 @@
   width: 349px;
   min-height: 365px;
   height: auto;
-  margin: 365px 0 0 auto;
+  margin: -365px 0 0 auto;
 }
 
 .u-section-1 .u-container-layout-1 {
@@ -39,8 +39,7 @@
 
 .u-section-1 .u-form-1 {
   height: 419px;
-  width: 1103px;
-  margin: 17px auto 43px;
+  margin: 21px 250px 57px 211px;
 }
 
 .u-section-1 .u-btn-2 {
