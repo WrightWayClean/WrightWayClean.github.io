@@ -62,7 +62,18 @@
     </header>
     <section class="u-clearfix u-custom-color-8 u-section-1" id="sec-5674">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <img class="custom-expanded u-image u-image-1" src="/images/Boise.jpg" data-image-width="2200" data-image-height="1467" alt="Sunrise over Boise with pastel oranges and purples in the sky, trees leading up to the city skyline.">
+        <picture>
+  <!-- AVIF version (preferred format) -->
+  <source srcset="/images/Boise.avif" type="image/avif">
+  <!-- WEBP version (fallback) -->
+  <source srcset="/images/Boise.webp" type="image/webp">
+  <!-- JPG version (last resort) -->
+  <img class="custom-expanded u-image u-image-1" 
+       src="/images/Boise.jpg" 
+       data-image-width="2200" 
+       data-image-height="1467" 
+       alt="Sunrise over Boise with pastel oranges and purples in the sky, trees leading up to the city skyline.">
+</picture>
         <div class="u-align-center u-border-2 u-border-palette-1-base u-container-align-center u-container-style u-custom-color-9 u-group u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <h4 class="u-text u-text-default u-text-1">Proudly serving Boise and Surrounding areas<br>
