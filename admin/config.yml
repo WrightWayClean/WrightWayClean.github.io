@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main # The branch to publish to
+
+media_folder: "static/images/uploads" # Folder to store uploaded files
+public_folder: "/images/uploads" # The URL for the uploaded files
+
+collections:
+  - name: "posts" # Used in routes, ie, /admin/collections/posts
+    label: "Posts" # Used in the UI
+    folder: "content/posts" # Folder where the files are stored
+    create: true # Allow users to create new posts
+    slug: "{{slug}}" # Unique identifier for the post
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Featured Image", name: "featured_image", widget: "image" }
