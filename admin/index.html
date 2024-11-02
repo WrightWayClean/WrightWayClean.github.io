@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.css">
+    
+    <script>
+        // Redirect users to the main site while preserving the path
+        if (window.location.hostname === "wrightwayclean.github.io") {
+            window.location.replace("https://www.wrightwaycleanid.com" + window.location.pathname + window.location.search);
+        }
+    </script>
 </head>
 <body>
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
