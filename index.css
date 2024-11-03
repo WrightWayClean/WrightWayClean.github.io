@@ -4,6 +4,9 @@
 
 .u-section-1 .u-sheet-1 {
   min-height: 701px;
+  margin: 0 auto; /* Center the sheet within the section */
+  max-width: 1200px; /* Optional: set max-width for consistency */
+  padding: 0 20px; /* Add horizontal padding */
 }
 
 .u-section-1 .u-image-1 {
@@ -40,6 +43,9 @@
 /* Section 2 styling */
 .u-section-2 .u-sheet-1 {
   min-height: 444px;
+  margin: 0 auto; /* Center the sheet within the section */
+  max-width: 1200px; /* Optional: set max-width for consistency */
+  padding: 0 20px; /* Add horizontal padding */
 }
 
 .u-section-2 .u-layout-wrap-1 {
@@ -97,6 +103,7 @@
 @media (max-width: 991px) {
   .u-section-1 .u-sheet-1 {
     min-height: 668px;
+    padding: 0 15px; /* Responsive padding */
   }
 
   .u-section-1 .u-image-1 {
@@ -106,6 +113,7 @@
 
   .u-section-2 .u-sheet-1 {
     min-height: 422px;
+    padding: 0 15px; /* Responsive padding */
   }
 
   /* Section 2 layout cells */
@@ -120,6 +128,7 @@
 @media (max-width: 767px) {
   .u-section-1 .u-sheet-1 {
     min-height: 586px;
+    padding: 0 10px; /* Responsive padding */
   }
 
   .u-section-1 .u-image-1 {
@@ -148,6 +157,7 @@
 @media (max-width: 575px) {
   .u-section-1 .u-sheet-1 {
     min-height: 494px;
+    padding: 0 10px; /* Responsive padding */
   }
 
   .u-section-1 .u-image-1 {
