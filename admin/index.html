@@ -29,11 +29,15 @@
             window.netlifyIdentity.on("init", (user) => {
                 if (user) {
                     document.location.href = "/admin"; // Redirect to /admin if user is already logged in
-                } else {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin"; // Redirect to /admin after login
-                    });
                 }
+            });
+
+            window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin"; // Redirect to /admin after login
+            });
+
+            window.netlifyIdentity.on("logout", () => {
+                document.location.href = "/"; // Redirect to home after logout
             });
 
             // Handle token redirection after confirmation or password reset
@@ -44,4 +48,5 @@
     </script>
 </body>
 </html>
+
 
