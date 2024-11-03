@@ -1,82 +1,114 @@
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en">
 <head>
-    <meta name="algolia-site-verification"  content="FFF9D47BFFB95CDB" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Boise, eco-friendly, cleaning, commercial cleaning, office cleaning, post-construction, Wright Way Clean, Airbnb cleaning, green clean">
     <title>Wright Way Clean | Eco-Friendly Cleaning Services</title>
-    <link rel="canonical" href="https://www.wrightwaycleanid.com/" />
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-    <link rel="stylesheet" href="index.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-    <meta name="description" content="Wright Way Clean provides eco-friendly commercial cleaning services in the Boise area. From office maintenance to post-construction cleanup, our team ensures your space shines. Contact us today for a customized quote.">
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    
     <style>
-        /* Add a flex container to align image and text side by side */
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        /* Flex container for image and text */
         .u-flex-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 20px;
             border-right: 5px solid #1d6e89; /* Teal border on the right */
+            max-width: 1200px;
+            margin: 0 auto; /* Center container on the page */
         }
 
-        /* Style for image to keep it within its container */
-        .u-image-1 {
-            width: 50%; /* Set width to half of the container */
-            max-width: 100%;
+        /* Styling for the image */
+        .u-image {
+            flex: 1; /* Allow image to take up half of the container */
+            max-width: 50%; /* Ensure image does not exceed 50% width */
+        }
+        
+        /* Ensure the image scales properly */
+        .u-image img {
+            width: 100%;
             height: auto;
         }
 
-        /* Style for the text container to align it next to the image */
+        /* Styling for the text container */
         .u-text-container {
-            width: 45%; /* Adjust to fit beside the image */
-            padding: 20px; /* Add padding for spacing */
+            flex: 1; /* Allow text to take up half of the container */
+            padding-left: 20px; /* Space between image and text */
         }
 
-        /* Style for button alignment */
-        .u-btn-1 {
+        /* Header text styling */
+        .u-header-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .u-btn {
+            display: inline-block;
+            background-color: #1d6e89; /* Teal button color */
+            color: #ffffff;
+            padding: 10px 20px;
             margin-top: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
         }
     </style>
 </head>
 
-<body data-path-to-root="/" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
-    <header class="u-clearfix u-grey-60 u-header u-header" id="sec-5b31">
-        <div class="u-clearfix u-sheet u-sheet-1">
-            <a href="/" class="u-image u-logo u-image-1" data-image-width="1424" data-image-height="864" title="Home">
-                <picture>
-                    <source srcset="/images/Logo Light.avif" type="image/avif">
-                    <source srcset="/images/Logo Light.webp" type="image/webp">
-                    <img src="/images/Logo Light.png" class="u-logo-image u-logo-image-1" alt="Wright Way Clean logo featuring a broom with dots and swirls around it, symbolizing magic, in seafoam green and turquoise blue colors.">
-                </picture>
-            </a>
-            <a href="/Quote.html" class="u-btn u-button-style u-palette-1-base u-btn-1" aria-label="Request a Quote">Request a Quote</a>
-            <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
-                <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700; text-transform: uppercase;">
-                    <a class="u-button-style u-nav-link" href="#">
-                        <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
-                        <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect></g></svg>
-                    </a>
-                </div>
-                <div class="u-custom-menu u-nav-container">
-                    <ul class="u-nav u-spacing-30 u-unstyled u-nav-1">
-                        <li class="u-nav-item"><a class="u-nav-link" href="/" style="padding: 10px 0px;">Home</a></li>
-                        <li class="u-nav-item"><a class="u-nav-link" href="/About.html" style="padding: 10px 0px;">About</a></li>
-                        <li class="u-nav-item"><a class="u-nav-link" href="/Pricing.html" style="padding: 10px 0px;">Pricing</a></li>
-                        <li class="u-nav-item"><a class="u-nav-link" href="/Contact.html" style="padding: 10px 0px;">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+<body>
+    <!-- Header -->
+    <header style="text-align: center; padding: 20px;">
+        <a href="/">
+            <img src="/images/Logo Light.png" alt="Wright Way Clean logo" style="width: 150px;">
+        </a>
+        <a href="/Quote.html" class="u-btn" aria-label="Request a Quote">Request a Quote</a>
     </header>
 
-    <section class="u-clearfix u-custom-color-6 u-section-1 u-flex-container" id="sec-d958">
-        <div class="u-image u-image-1">
+    <!-- Main section with flex container for image and text -->
+    <section class="u-flex-container">
+        <!-- Image container -->
+        <div class="u-image">
             <picture>
                 <source srcset="/images/image.avif" type="image/avif">
                 <source srcset="/images/image.webp" type="image/webp">
-                <img src="/images/image.png" class="u-logo-image u-logo-image-1" alt="Window cleaning service">
+                <img src="/images/image.png" alt="Cleaning service image">
             </picture>
+        </div>
+
+        <!-- Text container -->
+        <div class="u-text-container">
+            <h4 class="u-header-text">Proudly serving Boise and Surrounding areas<br>Get your quote within 24 hours</h4>
+            <a href="/Quote.html" class="u-btn" aria-label="Request a Quote">Request a Quote</a>
+            <p><strong>Welcome to Wright Way Clean</strong></p>
+            <p>At Wright Way Clean, we specialize in eco-friendly commercial cleaning services tailored to meet your needs...</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Wright Way Clean, LLC</p>
+    </footer>
+</body>
+</html>
