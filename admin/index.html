@@ -26,34 +26,13 @@
     <!-- Netlify Identity Initialization Script -->
     <script>
         if (window.netlifyIdentity) {
-            // Handle user initialization
             window.netlifyIdentity.on("init", (user) => {
-                if (user) {
-                    // If user is logged in, do not redirect
-                    console.log("User is logged in:", user);
-                } else {
-                    // If no user, show login button
-                    console.log("No user logged in");
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin"; // Redirect to /admin after login
+                    });
                 }
             });
-
-            // Handle user login
-            window.netlifyIdentity.on("login", () => {
-                // Redirect to /admin after login
-                document.location.href = "/admin";
-            });
-
-            // Handle user logout
-            window.netlifyIdentity.on("logout", () => {
-                // Redirect to home after logout
-                document.location.href = "/";
-            });
-
-            // Handle token redirection after confirmation or password reset
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has("token")) {
-                document.location.href = "/admin"; // Redirect to /admin if there's a token in the URL
-            }
         }
     </script>
 </body>
