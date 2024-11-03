@@ -69,13 +69,22 @@
         // Fetch blog posts from the content/blog folder
         async function fetchBlogPosts() {
             try {
-                const response = await fetch('/content/blog');
+                const response = await fetch('/content/blog'); // Update to your actual API endpoint if necessary
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                const posts = await response.text();
-                // Assuming your blog content is in HTML format
-                document.getElementById('blog-posts').innerHTML = posts;
+                const posts = await response.json(); // Assuming the posts are returned as JSON
+
+                const blogPostsContainer = document.getElementById('blog-posts');
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.innerHTML = `
+                        <h2>${post.title}</h2>
+                        <p>${post.excerpt}</p>
+                        <a href="/content/blog/${post.filename}">Read more</a>
+                    `;
+                    blogPostsContainer.appendChild(postElement);
+                });
             } catch (error) {
                 console.error('Error fetching blog posts:', error);
             }
@@ -85,3 +94,4 @@
     </script>
 </body>
 </html>
+
