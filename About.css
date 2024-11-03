@@ -1,7 +1,7 @@
 /* Global link styles */
 a {
-    color: blue; /* Change this to your desired link color */
-    text-decoration: underline; /* Adds an underline */
+    color: #1d6e89; /* Change this to your desired link color */
+    text-decoration: none; /* Adds an underline */
     cursor: pointer; /* Shows a pointer cursor on hover */
 }
 
