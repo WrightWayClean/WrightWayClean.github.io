@@ -27,7 +27,9 @@
     <script>
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", (user) => {
-                if (!user) {
+                if (user) {
+                    document.location.href = "/admin"; // Redirect to /admin if user is already logged in
+                } else {
                     window.netlifyIdentity.on("login", () => {
                         document.location.href = "/admin"; // Redirect to /admin after login
                     });
