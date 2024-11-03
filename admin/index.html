@@ -26,27 +26,52 @@
     <!-- Netlify Identity Initialization Script -->
     <script>
         if (window.netlifyIdentity) {
+            // Initialize Netlify Identity
             window.netlifyIdentity.on("init", (user) => {
+                console.log("User on init:", user);
                 if (user) {
-                    document.location.href = "/admin"; // Redirect to /admin if user is already logged in
+                    // If user is logged in, redirect to /admin only if not already there
+                    if (window.location.pathname !== "/admin") {
+                        document.location.href = "/admin";
+                    }
                 }
             });
 
+            // Redirect after login
             window.netlifyIdentity.on("login", () => {
+                console.log("User logged in");
                 document.location.href = "/admin"; // Redirect to /admin after login
             });
 
+            // Redirect after logout
             window.netlifyIdentity.on("logout", () => {
+                console.log("User logged out");
                 document.location.href = "/"; // Redirect to home after logout
             });
 
             // Handle token redirection after confirmation or password reset
             if (window.location.search.includes("token")) {
-                document.location.href = "/admin"; // Redirect to /admin if there's a token in the URL
+                console.log("Token found in URL, redirecting to /admin");
+                // Redirect to /admin if there's a token in the URL
+                if (window.location.pathname !== "/admin") {
+                    document.location.href = "/admin"; 
+                }
             }
+
+            // Check user state on load
+            window.addEventListener('load', () => {
+                const user = window.netlifyIdentity.currentUser();
+                console.log("Current user on load:", user);
+                if (user) {
+                    console.log("User is logged in.");
+                } else {
+                    console.log("User is not logged in.");
+                }
+            });
         }
     </script>
 </body>
 </html>
+
 
 
