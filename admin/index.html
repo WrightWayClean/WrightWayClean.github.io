@@ -26,48 +26,34 @@
     <!-- Netlify Identity Initialization Script -->
     <script>
         if (window.netlifyIdentity) {
-            // Initialize Netlify Identity
+            // Handle user initialization
             window.netlifyIdentity.on("init", (user) => {
-                console.log("User on init:", user);
                 if (user) {
-                    // If user is logged in, redirect to /admin only if not already there
-                    if (window.location.pathname !== "/admin") {
-                        document.location.href = "/admin";
-                    }
+                    // If user is logged in, do not redirect
+                    console.log("User is logged in:", user);
+                } else {
+                    // If no user, show login button
+                    console.log("No user logged in");
                 }
             });
 
-            // Redirect after login
+            // Handle user login
             window.netlifyIdentity.on("login", () => {
-                console.log("User logged in");
-                document.location.href = "/admin"; // Redirect to /admin after login
+                // Redirect to /admin after login
+                document.location.href = "/admin";
             });
 
-            // Redirect after logout
+            // Handle user logout
             window.netlifyIdentity.on("logout", () => {
-                console.log("User logged out");
-                document.location.href = "/"; // Redirect to home after logout
+                // Redirect to home after logout
+                document.location.href = "/";
             });
 
             // Handle token redirection after confirmation or password reset
-            if (window.location.search.includes("token")) {
-                console.log("Token found in URL, redirecting to /admin");
-                // Redirect to /admin if there's a token in the URL
-                if (window.location.pathname !== "/admin") {
-                    document.location.href = "/admin"; 
-                }
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has("token")) {
+                document.location.href = "/admin"; // Redirect to /admin if there's a token in the URL
             }
-
-            // Check user state on load
-            window.addEventListener('load', () => {
-                const user = window.netlifyIdentity.currentUser();
-                console.log("Current user on load:", user);
-                if (user) {
-                    console.log("User is logged in.");
-                } else {
-                    console.log("User is not logged in.");
-                }
-            });
         }
     </script>
 </body>
