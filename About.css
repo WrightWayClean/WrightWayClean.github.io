@@ -14,12 +14,6 @@ a:visited {
     color: purple; /* Change this to the color you want for visited links */
 }
 
-/* Override link styles for links within .u-text */
-.u-text a {
-    color: blue !important; /* Ensures link color is blue */
-    text-decoration: underline !important; /* Ensures underline is visible */
-}
-
 /* Other styles (unchanged) */
 .u-section-1 {
   background-image: none;
