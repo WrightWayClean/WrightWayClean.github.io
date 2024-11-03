@@ -14,25 +14,6 @@ a:visited {
     color: purple; /* Change this to the color you want for visited links */
 }
 
-.u-section-1 {
-  background-image: none;
-}
-/* Global link styles */
-a {
-    color: blue; /* Change this to your desired link color */
-    text-decoration: underline; /* Adds an underline */
-    cursor: pointer; /* Shows a pointer cursor on hover */
-}
-
-a:hover {
-    color: darkblue; /* Change to your preferred hover color */
-    text-decoration: none; /* Optional: remove underline on hover */
-}
-
-a:visited {
-    color: purple; /* Change this to the color you want for visited links */
-}
-
 /* Override link styles for links within .u-text */
 .u-text a {
     color: blue !important; /* Ensures link color is blue */
