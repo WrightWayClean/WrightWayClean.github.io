@@ -35,7 +35,13 @@
                     });
                 }
             });
+
+            // Handle token redirection after confirmation or password reset
+            if (window.location.search.includes("token")) {
+                document.location.href = "/admin"; // Redirect to /admin if there's a token in the URL
+            }
         }
     </script>
 </body>
 </html>
+
