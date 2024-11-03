@@ -10,16 +10,21 @@
 }
 
 .u-section-1 .u-image-1 {
-  max-width: 100%; /* Make the image responsive */
-  height: auto;    /* Maintain aspect ratio */
-  margin: 30px auto 0 0; /* Existing margin */
+  max-width: 50%; /* Adjust to half width */
+  height: auto;
+  float: left; /* Aligns image to the left */
+  margin: 0; /* Remove additional margins */
 }
 
 .u-section-1 .u-group-1 {
-  width: 349px;
-  min-height: 365px;
-  height: auto;
-  margin: -363px 0 0 auto;
+  max-width: 50%; /* Adjust to half width */
+  height: 100%; /* Make it full height to match the image */
+  float: right; /* Aligns text box to the right */
+  margin: 0; /* Remove existing margin to ensure alignment */
+  display: flex; /* Use flexbox for centering content */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  box-sizing: border-box; /* Ensures padding doesn't add extra width */
 }
 
 .u-section-1 .u-container-layout-1 {
