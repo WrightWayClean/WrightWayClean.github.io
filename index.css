@@ -7,9 +7,9 @@
 }
 
 .u-section-1 .u-image-1 {
-  width: 791px;
-  height: 363px;
-  margin: 30px auto 0 0;
+  max-width: 100%; /* Make the image responsive */
+  height: auto;    /* Maintain aspect ratio */
+  margin: 30px auto 0 0; /* Existing margin */
 }
 
 .u-section-1 .u-group-1 {
@@ -100,8 +100,8 @@
   }
 
   .u-section-1 .u-image-1 {
-    width: 720px;
-    height: 330px;
+    max-width: 100%; /* Ensure responsiveness on smaller screens */
+    height: auto;    /* Maintain aspect ratio */
   }
 
   .u-section-2 .u-sheet-1 {
@@ -123,8 +123,8 @@
   }
 
   .u-section-1 .u-image-1 {
-    width: 540px;
-    height: 248px;
+    max-width: 100%; /* Ensure responsiveness on smaller screens */
+    height: auto;    /* Maintain aspect ratio */
   }
 
   .u-section-1 .u-container-layout-1,
@@ -151,8 +151,8 @@
   }
 
   .u-section-1 .u-image-1 {
-    width: 340px;
-    height: 156px;
+    max-width: 100%; /* Ensure responsiveness on smaller screens */
+    height: auto;    /* Maintain aspect ratio */
   }
 
   .u-section-1 .u-group-1 {
