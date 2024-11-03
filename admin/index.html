@@ -12,8 +12,28 @@
             window.location.replace("https://www.wrightwaycleanid.com" + window.location.pathname + window.location.search);
         }
     </script>
+
+    <!-- Netlify Identity Widget Script -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+    <!-- Existing Netlify CMS Script -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+
+    <!-- Login / Signup Button for Netlify Identity -->
+    <button onclick="netlifyIdentity.open()">Login / Signup</button>
+
+    <!-- Netlify Identity Initialization Script -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", (user) => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin"; // Redirect to /admin after login
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
