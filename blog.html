@@ -69,24 +69,34 @@
         // Fetch blog posts from the content/blog folder
         async function fetchBlogPosts() {
             try {
-                const response = await fetch('/content/blog'); // Update to your actual API endpoint if necessary
+                const response = await fetch('https://raw.githubusercontent.com/WrightWayClean/WrightWayClean.github.io/main/content/blog');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const posts = await response.json(); // Assuming the posts are returned as JSON
 
                 const blogPostsContainer = document.getElementById('blog-posts');
-                posts.forEach(post => {
-                    const postElement = document.createElement('div');
-                    postElement.innerHTML = `
-                        <h2>${post.title}</h2>
-                        <p>${post.excerpt}</p>
-                        <a href="/content/blog/${post.filename}">Read more</a>
-                    `;
-                    blogPostsContainer.appendChild(postElement);
-                });
+                blogPostsContainer.innerHTML = ''; // Clear existing content
+
+                // Check if posts exist and update accordingly
+                if (posts.length > 0) {
+                    posts.forEach(post => {
+                        const postElement = document.createElement('div');
+                        postElement.innerHTML = `
+                            <h2>${post.title}</h2>
+                            <p>${post.excerpt}</p>
+                            <a href="/content/blog/${post.filename}">Read more</a>
+                        `;
+                        blogPostsContainer.appendChild(postElement);
+                    });
+                    // Hide placeholder text
+                    document.querySelector('.u-text-default.u-text-1').style.display = 'none'; 
+                } else {
+                    document.querySelector('.u-text-default.u-text-1').innerText = 'No blog posts available at this time.';
+                }
             } catch (error) {
                 console.error('Error fetching blog posts:', error);
+                document.getElementById('blog-posts').innerHTML = '<p>Error loading blog posts. Please try again later.</p>';
             }
         }
 
@@ -94,4 +104,5 @@
     </script>
 </body>
 </html>
+
 
