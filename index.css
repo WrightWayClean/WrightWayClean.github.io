@@ -4,27 +4,19 @@
 
 .u-section-1 .u-sheet-1 {
   min-height: 701px;
-  margin: 0 auto; /* Center the sheet within the section */
-  max-width: 1200px; /* Optional: set max-width for consistency */
-  padding: 0 20px; /* Add horizontal padding */
 }
 
 .u-section-1 .u-image-1 {
-  max-width: 50%; /* Adjust to half width */
-  height: auto;
-  float: left; /* Aligns image to the left */
-  margin: 0; /* Remove additional margins */
+  width: 791px;
+  height: 363px;
+  margin: 30px auto 0 0;
 }
 
 .u-section-1 .u-group-1 {
-  max-width: 50%; /* Adjust to half width */
-  height: 100%; /* Make it full height to match the image */
-  float: right; /* Aligns text box to the right */
-  margin: 0; /* Remove existing margin to ensure alignment */
-  display: flex; /* Use flexbox for centering content */
-  align-items: center; /* Center content vertically */
-  justify-content: center; /* Center content horizontally */
-  box-sizing: border-box; /* Ensures padding doesn't add extra width */
+  width: 349px;
+  min-height: 365px;
+  height: auto;
+  margin: -363px 0 0 auto;
 }
 
 .u-section-1 .u-container-layout-1 {
@@ -48,9 +40,6 @@
 /* Section 2 styling */
 .u-section-2 .u-sheet-1 {
   min-height: 444px;
-  margin: 0 auto; /* Center the sheet within the section */
-  max-width: 1200px; /* Optional: set max-width for consistency */
-  padding: 0 20px; /* Add horizontal padding */
 }
 
 .u-section-2 .u-layout-wrap-1 {
@@ -108,17 +97,15 @@
 @media (max-width: 991px) {
   .u-section-1 .u-sheet-1 {
     min-height: 668px;
-    padding: 0 15px; /* Responsive padding */
   }
 
   .u-section-1 .u-image-1 {
-    max-width: 100%; /* Ensure responsiveness on smaller screens */
-    height: auto;    /* Maintain aspect ratio */
+    width: 720px;
+    height: 330px;
   }
 
   .u-section-2 .u-sheet-1 {
     min-height: 422px;
-    padding: 0 15px; /* Responsive padding */
   }
 
   /* Section 2 layout cells */
@@ -133,12 +120,11 @@
 @media (max-width: 767px) {
   .u-section-1 .u-sheet-1 {
     min-height: 586px;
-    padding: 0 10px; /* Responsive padding */
   }
 
   .u-section-1 .u-image-1 {
-    max-width: 100%; /* Ensure responsiveness on smaller screens */
-    height: auto;    /* Maintain aspect ratio */
+    width: 540px;
+    height: 248px;
   }
 
   .u-section-1 .u-container-layout-1,
@@ -162,12 +148,11 @@
 @media (max-width: 575px) {
   .u-section-1 .u-sheet-1 {
     min-height: 494px;
-    padding: 0 10px; /* Responsive padding */
   }
 
   .u-section-1 .u-image-1 {
-    max-width: 100%; /* Ensure responsiveness on smaller screens */
-    height: auto;    /* Maintain aspect ratio */
+    width: 340px;
+    height: 156px;
   }
 
   .u-section-1 .u-group-1 {
