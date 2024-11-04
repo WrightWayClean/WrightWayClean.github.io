@@ -1,43 +1,50 @@
-<script>
-    // URLs of your blog posts in chronological order (latest first)
-    const blogPostUrls = [
-        'https://raw.githubusercontent.com/WrightWayClean/WrightWayClean.github.io/main/content/blog/why-choose-eco-friendly-cleaning-for-your-space.md',
-        // Add more URLs for additional blog posts here
-    ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wright Way Clean Blog</title>
+    <!-- Marked.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div id="blog-posts">
+        <!-- Blog posts will be dynamically loaded here -->
+    </div>
 
-    async function fetchBlogPosts() {
-        const blogPostsContainer = document.getElementById('blog-posts');
-        blogPostsContainer.innerHTML = ''; // Clear existing content
+    <script>
+        const blogPostUrls = [
+            'https://raw.githubusercontent.com/WrightWayClean/WrightWayClean.github.io/main/content/blog/why-choose-eco-friendly-cleaning-for-your-space.md',
+            // Add more URLs for additional blog posts here
+        ];
 
-        for (const url of blogPostUrls) {
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error('Failed to load blog post');
+        async function fetchBlogPosts() {
+            const blogPostsContainer = document.getElementById('blog-posts');
+            blogPostsContainer.innerHTML = ''; // Clear existing content
+
+            for (const url of blogPostUrls) {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error('Failed to load blog post');
+                    }
+
+                    const markdownText = await response.text();
+                    const htmlContent = marked(markdownText);
+
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('blog-post');
+                    postElement.innerHTML = htmlContent;
+
+                    blogPostsContainer.appendChild(postElement);
+                } catch (error) {
+                    console.error('Error fetching blog post:', error);
+                    blogPostsContainer.innerHTML += '<p>Error loading a blog post. Please try again later.</p>';
                 }
-
-                // Get the Markdown content as text
-                const markdownText = await response.text();
-
-                // Convert Markdown to HTML using Marked.js
-                const htmlContent = marked(markdownText);
-
-                // Create a post element to hold the HTML content
-                const postElement = document.createElement('div');
-                postElement.classList.add('blog-post');
-                postElement.innerHTML = htmlContent;
-
-                // Append the post to the blog posts container
-                blogPostsContainer.appendChild(postElement);
-            } catch (error) {
-                console.error('Error fetching blog post:', error);
-                blogPostsContainer.innerHTML += '<p>Error loading a blog post. Please try again later.</p>';
             }
         }
 
-        // Hide the "Coming Soon" placeholder text
-        document.querySelector('.u-text-default.u-text-1').style.display = 'none';
-    }
-
-    fetchBlogPosts();
-</script>
+        fetchBlogPosts();
+    </script>
+</body>
+</html>
