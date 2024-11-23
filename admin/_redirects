@@ -1,3 +1,5 @@
-https://teal-truffle-c790a7.netlify.app/* https://wrightwaycleanid.com/:splat 301!
-https://www.wrightwaycleanid.com/* https://wrightwaycleanid.com/:splat 301!
-https://wrightwayclean.github.io/* https://wrightwaycleanid.com/:splat 301!
+# Redirect Netlify subdomain
+https://teal-truffle-c790a7.netlify.app/* https://wrightwaycleanid.com/:splat/ 301
+
+# Redirect GitHub Pages
+https://wrightwayclean.github.io/* https://wrightwaycleanid.com/:splat/ 301
