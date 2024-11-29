@@ -91,7 +91,7 @@
             <span style="font-size: 1.25rem;">We’re here to help! Whether you have questions about our services, need a quote, or want to schedule a cleaning, feel free to reach out. Fill out the contact form below to send us a message or give us a call at (208)996-3889. Our team is eager to assist you in any way we can.</span>
           </p>
         </div>
- <div class="u-form u-form-1">
+<div class="u-form u-form-1">
   <form action="sendmail.php" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;">
     <div class="u-form-group u-form-name">
       <label for="name-f542" class="u-label">Name</label>
@@ -105,18 +105,30 @@
       <label for="message-f542" class="u-label">Message</label>
       <textarea placeholder="Enter your message" rows="4" cols="50" id="message-f542" name="message" class="u-input u-input-rectangle" required></textarea>
     </div>
-    
-    <!-- Google reCAPTCHA -->
-    <div class="g-recaptcha" data-sitekey="6LfvJFIqAAAAAJnA_Za4qxdAbw4_qaGkqF48Kk5m"></div>
+
+    <!-- Hidden reCAPTCHA token field -->
+    <input type="hidden" name="recaptchaResponse" id="recaptchaResponse">
     
     <div class="u-align-left u-form-group u-form-submit">
       <button type="submit" class="u-border-none u-btn u-btn-submit u-button-style u-palette-1-base u-btn-2" aria-label="Submit">Submit</button>
     </div>
-    
+
     <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
     <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
   </form>
 </div>
+
+<!-- Load reCAPTCHA v3 script -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LfvJFIqAAAAAJnA_Za4qxdAbw4_qaGkqF48Kk5m"></script>
+
+<script>
+  grecaptcha.ready(function() {
+    grecaptcha.execute('6LfvJFIqAAAAAJnA_Za4qxdAbw4_qaGkqF48Kk5m', {action: 'submit'}).then(function(token) {
+      document.getElementById('recaptchaResponse').value = token;
+    });
+  });
+</script>
+
 
 <!-- Include the Google reCAPTCHA script -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
