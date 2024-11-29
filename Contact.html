@@ -110,7 +110,13 @@
     <input type="hidden" name="recaptchaResponse" id="recaptchaResponse">
     
     <div class="u-align-left u-form-group u-form-submit">
-      <button type="submit" class="u-border-none u-btn u-btn-submit u-button-style u-palette-1-base u-btn-2" aria-label="Submit">Submit</button>
+<button type="submit" class="u-border-none u-btn u-btn-submit u-button-style u-palette-1-base u-btn-2" aria-label="Submit" id="submitBtn">Submit</button>
+	    <script>
+  document.getElementById('submitBtn').addEventListener('click', function(e) {
+    console.log('Submit button clicked');
+    e.preventDefault(); // Prevents default action for debugging
+  });
+</script>
     </div>
 
     <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
