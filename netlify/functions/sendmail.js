@@ -20,7 +20,7 @@ exports.handler = async (event, context) => {
   }
 
   // Verify the reCAPTCHA response
-  const secretKey = process.env.6LfvJFIqAAAAAM3Yc8EiS9sYiEzFav4rzEk_ruaN; // Ensure the secret key is in your environment variables
+  const secretKey = process.env.6LfvJFIqAAAAAM3Yc8EiS9sYiEzFav4rzEk_ruaN; // Use an environment variable for security
   const recaptchaVerificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaResponse}`;
 
   try {
@@ -40,8 +40,8 @@ exports.handler = async (event, context) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail', // or use any email service you'd like
       auth: {
-        user: process.env.wrightwaycleanid, // Replace with your email address
-        pass: process.env.WrightWayCleanID123, // Replace with your email password or app password
+        user: process.env.wrightwaycleanid@gmail.com, // Your email address from environment variables
+        pass: process.env.WrightWayCleanID123, // Your email password or app password from environment variables
       },
     });
 
@@ -61,10 +61,10 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ message: 'Email sent successfully' }),
     };
   } catch (error) {
+    console.error('Error occurred:', error); // Log error for debugging
     return {
       statusCode: 500,
       body: JSON.stringify({ message: 'Failed to send email or reCAPTCHA verification failed', error }),
     };
   }
 };
-
