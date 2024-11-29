@@ -11,7 +11,7 @@
     <meta property="og:title" content="Contact">
     <meta property="og:description" content="Contact Wright Way Clean to learn more about our eco-friendly cleaning services in Boise.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="/images/logo-social-share.png"> <!-- Update with your social media image -->
+    <meta property="og:image" content="/images/logo-social-share.png">
     <link rel="canonical" href="https://www.wrightwaycleanid.com/Contact.html/" />
     <link rel="stylesheet" href="nicepage.css" media="screen">
     <link rel="stylesheet" href="Contact.css" media="screen">
@@ -32,30 +32,25 @@
         <div class="u-clearfix u-sheet u-sheet-1">
             <a href="/" class="u-image u-logo u-image-1" data-image-width="1424" data-image-height="864" title="Home">
                 <picture>
-                    <!-- AVIF format (preferred) -->
                     <source srcset="/images/Logo Light.avif" type="image/avif">
-                    
-                    <!-- WebP format (backup) -->
                     <source srcset="/images/Logo Light.webp" type="image/webp">
-                    
-                    <!-- PNG format (last resort) -->
                     <img src="/images/Logo Light.png" class="u-logo-image u-logo-image-1" alt="Wright Way Clean logo featuring a broom with dots and swirls around it, symbolizing magic, in seafoam green and turquoise blue colors.">
                 </picture>
             </a>
             <a href="/Quote.html" class="u-btn u-button-style u-palette-1-base u-btn-1" aria-label="Request a Quote">Request a Quote</a>
             <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
                 <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700; text-transform: uppercase;">
-                    <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+                    <a class="u-button-style u-nav-link" href="#">
                         <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
                         <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect></g></svg>
                     </a>
                 </div>
                 <div class="u-custom-menu u-nav-container">
                     <ul class="u-nav u-spacing-30 u-unstyled u-nav-1">
-                        <li class="u-nav-item"><a class="u-border-2 u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="/" style="padding: 10px 0px;">Home</a></li>
-                        <li class="u-nav-item"><a class="u-border-2 u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="/About.html" style="padding: 10px 0px;">About</a></li>
-                        <li class="u-nav-item"><a class="u-border-2 u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="/Pricing.html" style="padding: 10px 0px;">Pricing</a></li>
-                        <li class="u-nav-item"><a class="u-border-2 u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="/Contact.html" style="padding: 10px 0px;">Contact</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/" style="padding: 10px 0px;">Home</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/About.html" style="padding: 10px 0px;">About</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/Pricing.html" style="padding: 10px 0px;">Pricing</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/Contact.html" style="padding: 10px 0px;">Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -83,6 +78,8 @@
                 <p><strong>Get in Touch with Us</strong></p>
                 <p>We’re here to help! Whether you have questions about our services, need a quote, or want to schedule a cleaning, feel free to reach out. Fill out the contact form below to send us a message or give us a call at <strong>(208) 996-3889</strong>. Our team is eager to assist you in any way we can.</p>
             </div>
+
+            <!-- Contact Form -->
             <div class="u-form u-form-1">
                 <form action="sendmail.php" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;">
                     <div class="u-form-group u-form-name">
@@ -101,95 +98,21 @@
                         <label for="message-f542" class="u-label">Message</label>
                         <textarea placeholder="Enter your Message" rows="4" cols="50" id="message-f542" name="message" class="u-input u-input-rectangle" required=""></textarea>
                     </div>
-                    <div class="g-recaptcha" data-sitekey="6LfvJFIqAAAAAJnA_Za4qxdAbw4_qaGkqF48Kk5m"></div>
-                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
-                    <div class="u-align-center u-form-group u-form-submit">
-                        <input type="submit" value="Submit" class="u-btn u-btn-submit u-button-style">
+                    <div class="g-recaptcha" data-sitekey="6LfvJFIqAAAAAJnA_Za4qxdAbw4QJ4cy2Xm9RQ3F"></div>
+                    <div class="u-align-right u-form-group u-form-submit">
+                        <input type="submit" value="Send Message" class="u-btn u-btn-submit u-button-style u-palette-1-base u-btn-2">
                     </div>
                 </form>
             </div>
         </div>
     </section>
-    <!-- Your Form HTML Section -->
 
-<div class="u-form u-form-1">
-    <form action="sendmail.php" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;">
-        <!-- Form fields (Name, Email, Phone, Message) -->
-        <div class="u-form-group u-form-name">
-            <label for="name-f542" class="u-label">Name</label>
-            <input type="text" placeholder="Enter your Name" id="name-f542" name="name" class="u-input u-input-rectangle" required="">
+    <footer class="u-align-center u-clearfix u-footer u-footer-1" id="sec-0177">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <p>2024 Wright Way Clean. All rights reserved.</p>
         </div>
-        <div class="u-form-group u-form-email">
-            <label for="email-f542" class="u-label">Email</label>
-            <input type="email" placeholder="Enter your Email" id="email-f542" name="email" class="u-input u-input-rectangle" required="">
-        </div>
-        <div class="u-form-group u-form-phone">
-            <label for="phone-f542" class="u-label">Phone Number</label>
-            <input type="tel" placeholder="Enter your Phone Number" id="phone-f542" name="phone" class="u-input u-input-rectangle" required="">
-        </div>
-        <div class="u-form-group u-form-message">
-            <label for="message-f542" class="u-label">Message</label>
-            <textarea placeholder="Enter your Message" rows="4" cols="50" id="message-f542" name="message" class="u-input u-input-rectangle" required=""></textarea>
-        </div>
-        <div class="g-recaptcha" data-sitekey="6LfvJFIqAAAAAJnA_Za4qxdAbw4_qaGkqF48Kk5m"></div>
-        <div class="u-align-center u-form-group u-form-submit">
-            <input type="submit" value="Submit" class="u-btn u-btn-submit u-button-style">
-        </div>
-    </form>
-</div>
-
-<!-- Add jQuery Script -->
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-
-<!-- Your Custom JavaScript -->
-<script>
-$(document).ready(function () {
-    $("form").on("submit", function (e) {
-        e.preventDefault(); // Prevent form from submitting so we can debug
-
-        console.log("Form submitted"); // Check if this logs when you click the submit button
-
-        // Collect form data
-        var name = $("input[name='name']").val();
-        var email = $("input[name='email']").val();
-        var message = $("textarea[name='message']").val();
-        var recaptchaResponse = $("textarea[name='g-recaptcha-response']").val();
-
-        // Basic validation check
-        if (name && email && message && recaptchaResponse) {
-            // Send the form data via AJAX
-            $.ajax({
-                url: "sendmail.php",
-                type: "POST",
-                data: {
-                    name: name,
-                    email: email,
-                    message: message,
-                    g-recaptcha-response: recaptchaResponse
-                },
-                success: function (response) {
-                    console.log("Form submission response:", response);
-                    if (response === "success") {
-                        alert("Thank you for your message!"); // Show success message
-                        $("form")[0].reset(); // Clear the form on success
-                    } else {
-                        alert("Error sending message. Please try again later.");
-                    }
-                },
-                error: function () {
-                    console.log("Error in AJAX request");
-                    alert("There was an issue with the submission.");
-                }
-            });
-        } else {
-            console.log("Validation failed.");
-            alert("Please fill in all fields and complete the reCAPTCHA.");
-        }
-    });
-});
-</script>
-</body>
-
+    </footer>
 </body>
 </html>
+
 
