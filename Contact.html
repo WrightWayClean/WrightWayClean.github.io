@@ -80,7 +80,7 @@
 
             <!-- Contact Form -->
             <div class="u-form u-form-1">
-                <form action="/.netlify/functions/sendmail.js" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;">
+                <form id="contact-form" onsubmit="handleSubmit(event)" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;">
                     <div class="u-form-group u-form-name">
                         <label for="name-f542" class="u-label">Name</label>
                         <input type="text" placeholder="Enter your Name" id="name-f542" name="name" class="u-input u-input-rectangle" required=""/>
@@ -97,9 +97,8 @@
                         <label for="message-f542" class="u-label">Message</label>
                         <textarea placeholder="Enter your Message" rows="4" cols="50" id="message-f542" name="message" class="u-input u-input-rectangle" required=""></textarea>
                     </div>
-                    <div class="g-recaptcha" data-sitekey="6LfvJFIqAAAAAJnA_Za4qxdAbw4_qaGkqF48Kk5m"></div>
-                    <div class="u-align-center u-form-group u-form-submit">
-                        <input type="submit" value="Submit" id="submit" class="u-btn u-btn-submit u-button-style u-palette-1-base" onclick="disableSubmit()"/>
+                    <div class="u-align-left u-form-group u-form-submit">
+                        <input type="submit" value="Submit" id="submit" class="u-btn u-btn-submit u-button-style u-palette-1-base"/>
                         <input type="reset" value="Clear" class="u-btn u-btn-reset u-button-style u-palette-1-base">
                     </div>
                 </form>
@@ -108,19 +107,22 @@
     </section>
 
     <script>
-        // Disable the submit button once clicked
-        function disableSubmit() {
-            var submitButton = document.getElementById("submit");
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent the page from reloading
+            const form = document.getElementById('contact-form');
+            const submitButton = document.getElementById('submit');
             submitButton.disabled = true;
-            submitButton.value = "Submitting...";
+            submitButton.value = 'Submitting...';
+
+            // Simulate a submission (e.g., send via API, server, etc.)
+            setTimeout(function() {
+                // Clear the form after submission
+                form.reset();
+                submitButton.disabled = false;
+                submitButton.value = 'Submit';
+            }, 2000); // Simulate a short delay for the form submission
         }
     </script>
-
 </body>
 </html>
-
-
-
-
-
-
