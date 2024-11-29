@@ -100,14 +100,28 @@
                     </div>
                     <div class="g-recaptcha" data-sitekey="6LfvJFIqAAAAAJnA_Za4qxdAbw4_qaGkqF48Kk5m"></div>
                     <div class="u-align-center u-form-group u-form-submit">
-                        <button type="submit" class="u-btn u-btn-submit u-button-style">Submit</button>
+                        <input type="submit" value="Send" class="u-btn u-btn-submit u-button-style" />
                     </div>
                 </form>
             </div>
         </div>
     </section>
+
+    <script>
+        // JavaScript for form validation and reCAPTCHA
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var recaptchaResponse = grecaptcha.getResponse();
+            if (recaptchaResponse.length === 0) {
+                alert('Please verify that you are not a robot.');
+                return false;
+            }
+            this.submit();
+        });
+    </script>
 </body>
 </html>
+
 
 
 
