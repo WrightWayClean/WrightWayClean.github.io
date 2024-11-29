@@ -3,9 +3,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars($_POST['name']);
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     $message = htmlspecialchars($_POST['message']);
+    $recaptchaResponse = $_POST['g-recaptcha-response'];
 
-    if ($name && $email && $message) {
-        $to = "your-email@example.com";  // Replace with your email address
+    // Verify reCAPTCHA
+    $secretKey = 'YOUR_SECRET_KEY_HERE';  // Insert your secret key
+    $verifyResponse = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$recaptchaResponse");
+    $responseData = json_decode($verifyResponse);
+
+    if ($responseData->success && $name && $email && $message) {
+        $to = "wrightwaycleanid@gmail.com";
         $subject = "New Contact Form Submission";
         $headers = "From: $email\r\n";
         $headers .= "Reply-To: $email\r\n";
@@ -21,3 +27,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
