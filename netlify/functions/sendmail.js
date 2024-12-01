@@ -32,7 +32,7 @@ exports.handler = async (event, context) => {
             statusCode: 200,
             body: JSON.stringify({ message: 'Message sent successfully' }),
         };
-        catch (error) {
+    } catch (error) {
             console.error('Error sending email:', error.message);
             console.error('Stack trace:', error.stack);  // Log the stack trace for deeper insight
         
