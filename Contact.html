@@ -25,26 +25,6 @@
             color: black !important;
         }
     </style>
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault(); // Prevent the default form submission
-            const form = event.target;
-            const formData = new FormData(form);
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert("Your message has been sent successfully.");
-                form.reset(); // Reset the form fields
-            })
-            .catch(error => {
-                alert("There was an error sending your message. Please try again.");
-            });
-        }
-    </script>
 </head>
 <body data-path-to-root="/" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
     <header class="u-clearfix u-grey-60 u-header u-header" id="sec-5b31">
@@ -219,13 +199,24 @@ c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
         </div>
     </footer>
 <script>
-  function handleSubmit(event) {
-    event.preventDefault();
-    // Your submission logic here
-  }
-  
-  document.querySelector('form').addEventListener('submit', handleSubmit);
+     function handleSubmit(event) {
+         event.preventDefault();
+         const form = event.target;
+         const formData = new FormData(form);
+         
+         fetch(form.action, {
+             method: 'POST',
+             body: formData,
+         })
+         .then(response => response.json())
+         .then(data => {
+             alert("Your message has been sent successfully.");
+             form.reset(); // Reset the form fields
+         })
+         .catch(error => {
+             alert("There was an error sending your message. Please try again.");
+         });
+     }
 </script>
-
 </body>
 </html>
