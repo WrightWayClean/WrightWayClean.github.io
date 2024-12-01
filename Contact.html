@@ -79,32 +79,57 @@
             </div>
 
             <!-- Contact Form -->
-<form id="contact-form" name="contact" method="POST" action="/.netlify/functions/sendmail" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
-    <input type="hidden" name="form-name" value="contact">
-    <div style="display:none;">
-        <label>Don’t fill this out: <input name="bot-field"></label>
-    </div>
-    <div class="u-form-group u-form-name">
-        <label for="name-f542" class="u-label">Name</label>
-        <input type="text" placeholder="Enter your Name" id="name-f542" name="name" class="u-input u-input-rectangle" required="">
-    </div>
-    <div class="u-form-group u-form-email">
-        <label for="email-f542" class="u-label">Email</label>
-        <input type="email" placeholder="Enter your Email" id="email-f542" name="email" class="u-input u-input-rectangle" required="">
-    </div>
-    <div class="u-form-group u-form-phone">
-        <label for="phone-f542" class="u-label">Phone Number</label>
-        <input type="tel" placeholder="Enter your Phone Number" id="phone-f542" name="phone" class="u-input u-input-rectangle" required="">
-    </div>
-    <div class="u-form-group u-form-message">
-        <label for="message-f542" class="u-label">Message</label>
-        <textarea placeholder="Enter your Message" id="message-f542" name="message" class="u-input u-input-rectangle" required=""></textarea>
-    </div>
-    <div class="u-align-center u-form-group u-form-submit">
-        <input type="submit" value="Send Message" class="u-btn u-btn-submit u-button-style">
-    </div>
-</form>
+    <form id="contact-form" name="contact" method="POST" action="/.netlify/functions/sendmail" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="form-name" value="contact">
+        <div style="display:none;">
+            <label>Don’t fill this out: <input name="bot-field"></label>
+        </div>
+        <div class="u-form-group u-form-name">
+            <label for="name-f542" class="u-label">Name</label>
+            <input type="text" placeholder="Enter your Name" id="name-f542" name="name" class="u-input u-input-rectangle" required="">
+        </div>
+        <div class="u-form-group u-form-email">
+            <label for="email-f542" class="u-label">Email</label>
+            <input type="email" placeholder="Enter your Email" id="email-f542" name="email" class="u-input u-input-rectangle" required="">
+        </div>
+        <div class="u-form-group u-form-phone">
+            <label for="phone-f542" class="u-label">Phone Number</label>
+            <input type="tel" placeholder="Enter your Phone Number" id="phone-f542" name="phone" class="u-input u-input-rectangle" required="">
+        </div>
+        <div class="u-form-group u-form-message">
+            <label for="message-f542" class="u-label">Message</label>
+            <textarea placeholder="Enter your Message" id="message-f542" name="message" class="u-input u-input-rectangle" required=""></textarea>
+        </div>
+        <div class="u-align-center u-form-group u-form-submit">
+            <input type="submit" value="Send Message" class="u-btn u-btn-submit u-button-style">
+        </div>
+    </form>
 
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();  // Prevent the default form submission
+            const form = event.target;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                console.log('Response:', response);  // Log the response to check
+                return response.json();  // Try to parse the response as JSON
+            })
+            .then(data => {
+                console.log('Data:', data);  // Log the parsed data
+                alert("Your message has been sent successfully.");
+                form.reset();  // Reset the form fields after successful submission
+            })
+            .catch(error => {
+                console.error('Error:', error);  // Log any errors that occurred during the fetch
+                alert("There was an error sending your message. Please try again.");
+            });
+        }
+    </script>
             </div>
         </div>
     </section>
@@ -198,34 +223,5 @@ c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
             <p class="u-small-text u-text u-text-variant u-text-1">© 2024 Wright Way Clean | All Rights Reserved</p>
         </div>
     </footer>
-<script>
-     function handleSubmit(event) {
-         event.preventDefault();
-         const form = event.target;
-         const formData = new FormData(form);
-         
-         fetch(form.action, {
-             method: 'POST',
-             body: formData,
-         })
-         .then(response => response.json())
-         .then(data => {
-             alert("Your message has been sent successfully.");
-             form.reset(); // Reset the form fields
-         })
-         .catch(error => {
-             alert("There was an error sending your message. Please try again.");
-         });
-     }
-</script>
-    <script>
-    function handleSubmit(event) {
-        event.preventDefault();
-        // Your form handling logic here
-        console.log("Form submitted!");
-    }
-</script>
-
-</body>
 </body>
 </html>
