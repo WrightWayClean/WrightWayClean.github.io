@@ -3,8 +3,14 @@ const nodemailer = require('nodemailer');
 
 exports.handler = async (event, context) => {
     try {
+        // Log raw event.body to check the format of incoming data
+        console.log('Raw body:', event.body);
+
         // Parse incoming JSON body from the form submission
         const { name, email, phone, message } = JSON.parse(event.body);
+
+        // Log parsed data for debugging
+        console.log('Parsed form data:', { name, email, phone, message });
 
         // Set up nodemailer transporter with Gmail
         const transporter = nodemailer.createTransport({
@@ -17,8 +23,8 @@ exports.handler = async (event, context) => {
 
         // Define mail options
         const mailOptions = {
-            from: email,  // Sender’s email address
-            to: 'wrightwaycleanid@gmail.com',  // Replace with your email address
+            from: process.env.EMAIL_USER,  // Use your email address to avoid Gmail restrictions
+            to: 'wrightwaycleanid@gmail.com',  // Replace with your actual email address
             subject: `Message from ${name}`,
             text: `Phone: ${phone}\n\nMessage: ${message}`,
         };
@@ -33,13 +39,15 @@ exports.handler = async (event, context) => {
             body: JSON.stringify({ message: 'Message sent successfully' }),
         };
     } catch (error) {
-            console.error('Error sending email:', error.message);
-            console.error('Stack trace:', error.stack);  // Log the stack trace for deeper insight
-        
-            return {
-                statusCode: 500,
-                body: JSON.stringify({ message: 'Failed to send message', error: error.message }), // Include the error message in the response
-            };
-        }
+        console.error('Error sending email:', error.message);
+        console.error('Stack trace:', error.stack);  // Log the stack trace for deeper insight
+
+        // Return failure response
+        return {
+            statusCode: 500,
+            body: JSON.stringify({ message: 'Failed to send message', error: error.message }),
+        };
+    }
 };
+
 
