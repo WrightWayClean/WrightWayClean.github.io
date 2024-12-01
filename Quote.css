@@ -12,6 +12,17 @@
   margin: 17px auto 43px;
 }
 
+.u-align-center {
+    display: flex;
+    justify-content: center; /* Ensures the button is centered horizontally */
+    width: 100%; /* Ensures the container takes up full width */
+}
+
+.u-btn {
+    display: inline-block;
+    margin: 0 auto; /* Centers the button in its container */
+}
+
 .u-section-1 .u-form-group-1 {
   margin-left: 0;
 }
