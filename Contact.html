@@ -105,17 +105,27 @@
         </div>
     </form>
 
-    <script>
+<script>
 function handleSubmit(event) {
     event.preventDefault();  // Prevent the default form submission
     const form = event.target;
-    const formData = new FormData(form);
 
-    console.log('Fetching form data...');  // Add this line to confirm the fetch is being triggered
+    // Collect form data and convert it into a plain object
+    const formData = new FormData(form);
+    const formObject = {};
+    formData.forEach((value, key) => {
+        formObject[key] = value;
+    });
+
+    console.log('Fetching form data...');  // Log to confirm form data is being collected
+    console.log('Form data:', formObject);  // Log the object with form data
 
     fetch(form.action, {
         method: 'POST',
-        body: formData,
+        headers: {
+            'Content-Type': 'application/json',  // Set header to indicate JSON content
+        },
+        body: JSON.stringify(formObject),  // Send form data as JSON
     })
     .then(response => {
         console.log('Response:', response);  // Log the response to check
@@ -131,8 +141,7 @@ function handleSubmit(event) {
         alert("There was an error sending your message. Please try again.");
     });
 }
-
-    </script>
+</script>
             </div>
         </div>
     </section>
