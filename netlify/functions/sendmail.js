@@ -23,10 +23,17 @@ exports.handler = async (event, context) => {
 
         // Define mail options
         const mailOptions = {
-            from: process.env.EMAIL_USER,  // Use your email address to avoid Gmail restrictions
-            to: 'wrightwaycleanid@gmail.com',  // Replace with your actual email address
+            from: email,  // Sender’s email address
+            to: 'recipient@example.com',  // Replace with your email address
             subject: `Message from ${name}`,
-            text: `Phone: ${phone}\n\nMessage: ${message}`,
+            text: `
+                Name: ${name}
+                Email: ${email}
+                Phone: ${phone}
+
+                Message:
+                ${message}
+            `,
         };
 
         // Send email
