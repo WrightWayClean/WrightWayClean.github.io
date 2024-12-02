@@ -7,10 +7,10 @@ exports.handler = async (event, context) => {
         console.log('Raw body:', event.body);
 
         // Parse incoming JSON body from the form submission
-        const { name1, name2, email, phone, textarea, textarea1, message } = JSON.parse(event.body);
+        const { name1, name2, email, phone, businessName, businessCity, message } = JSON.parse(event.body);
 
         // Log parsed data for debugging
-        console.log('Parsed form data:', { name1, name2, email, phone, textarea, textarea1, message });
+        console.log('Parsed form data:', { name1, name2, email, phone, businessName, businessCity, message });
 
         // Set up nodemailer transporter with Gmail
         const transporter = nodemailer.createTransport({
@@ -31,8 +31,8 @@ exports.handler = async (event, context) => {
                 Last name: ${name2}
                 Email: ${email}
                 Phone: ${phone}
-                Business name: ${textarea}
-                Business location: ${textarea1}
+                Business name: ${businessName}
+                Business location: ${businessCity}
 
                 Message:
                 ${message}
