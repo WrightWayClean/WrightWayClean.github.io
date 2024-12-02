@@ -79,7 +79,17 @@
             <div class="u-form u-form-1">
                    <form id="contact-form" name="quote" method="POST" action="/.netlify/functions/sendmail" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
     <input type="hidden" name="form-name" value="quote">
-    <!-- Other fields remain unchanged -->
+    <div style="display:none;">
+            <label>Don’t fill this out: <input name="bot-field"></label>
+        </div>
+        <div class="u-form-group u-form-name">
+            <label for="name-f542" class="u-label">Name</label>
+            <input type="text" placeholder="Enter your Name" id="name-f542" name="name" class="u-input u-input-rectangle" required="">
+        </div>
+        <div class="u-form-group u-form-email">
+            <label for="email-f542" class="u-label">Email</label>
+            <input type="email" placeholder="Enter your Email" id="email-f542" name="email" class="u-input u-input-rectangle" required="">
+        </div>
     <div class="u-form-group u-form-phone u-form-partition-factor-2">
         <label for="phone" class="u-label" style="color: black;">Phone</label>
         <input type="tel" placeholder="Enter your phone number" id="phone" name="phone" class="u-input u-input-rectangle" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
