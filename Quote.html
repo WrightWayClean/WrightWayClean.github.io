@@ -232,8 +232,17 @@ c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
       </div></footer>
     <section class="u-backlink u-clearfix u-grey-80">
     </section>
-  
-</body></html>
-
+      <script>
+        $(document).ready(function () {
+            var formSubmitted = false;
+            $("form").submit(function (event) {
+                if (formSubmitted) {
+                    event.preventDefault();
+                    return false;
+                }
+                formSubmitted = true;
+            });
+        });
+    </script>
 </body>
 </html>
