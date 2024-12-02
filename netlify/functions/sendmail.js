@@ -3,74 +3,53 @@ const nodemailer = require('nodemailer');
 
 exports.handler = async (event, context) => {
     try {
+        // Log raw event.body to check the format of incoming data
         console.log('Raw body:', event.body);
 
-        // Parse the incoming JSON body
-        const data = JSON.parse(event.body);
+        // Parse incoming JSON body from the form submission
+        const { name, email, phone, message } = JSON.parse(event.body);
 
-        let mailOptions;
+        // Log parsed data for debugging
+        console.log('Parsed form data:', { name, email, phone, message });
 
-        // Check which form is being submitted by checking the presence of certain fields
-        if (data.address) {
-            // Contact form
-            const { name, email, phone, address } = data;
-
-            mailOptions = {
-                from: email,
-                to: 'wrightwaycleanid@gmail.com',
-                subject: `Contact Form Submission from ${name}`,
-                text: `
-                    Name: ${name}
-                    Email: ${email}
-                    Phone: ${phone}
-                    Address: ${address}
-                `,
-            };
-        } else if (data.businessName) {
-            // Quote form
-            const { firstName, lastName, email, phone, businessName, businessCity, message } = data;
-
-            mailOptions = {
-                from: email,
-                to: 'wrightwaycleanid@gmail.com',
-                subject: `Quote Request from ${firstName} ${lastName}`,
-                text: `
-                    First Name: ${firstName}
-                    Last Name: ${lastName}
-                    Email: ${email}
-                    Phone: ${phone}
-                    Business Name: ${businessName}
-                    Business City: ${businessCity}
-
-                    Message:
-                    ${message}
-                `,
-            };
-        } else {
-            throw new Error('Unknown form submission.');
-        }
-
-        // Set up nodemailer transporter
+        // Set up nodemailer transporter with Gmail
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                user: process.env.EMAIL_USER,  // Email from environment variable
+                pass: process.env.EMAIL_PASS,  // App password from environment variable
             },
         });
+
+        // Define mail options
+        const mailOptions = {
+            from: email,  // Sender’s email address
+            to: 'wrightwaycleanid@gmail.com',  // Replace with your email address
+            subject: `Message from ${name}`,
+            text: `
+                Name: ${name}
+                Email: ${email}
+                Phone: ${phone}
+
+                Message:
+                ${message}
+            `,
+        };
 
         // Send email
         const info = await transporter.sendMail(mailOptions);
         console.log('Email sent:', info.response);
 
+        // Return success response
         return {
             statusCode: 200,
             body: JSON.stringify({ message: 'Message sent successfully' }),
         };
     } catch (error) {
         console.error('Error sending email:', error.message);
-        console.error('Stack trace:', error.stack);
+        console.error('Stack trace:', error.stack);  // Log the stack trace for deeper insight
 
+        // Return failure response
         return {
             statusCode: 500,
             body: JSON.stringify({ message: 'Failed to send message', error: error.message }),
