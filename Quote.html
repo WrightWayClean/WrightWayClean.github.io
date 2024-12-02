@@ -124,34 +124,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log('Submitting form...', formObject);  // Debug log
 
-           fetch('/.netlify/functions/sendmail2', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formObject),
-})
-.then(response => {
-    console.log('Response:', response);
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    return response.json();
-})
-.then(data => {
-    console.log('Data received:', data);
-    alert("Your message has been sent successfully.");
-    form.reset();
-})
-.catch(error => {
-    console.error('Fetch error:', error);
-    alert("There was an error sending your message.");
-        });
+            fetch('/.netlify/functions/sendmail2', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formObject),
+            })
+            .then(response => {
+                console.log('Response:', response);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Data received:', data);
+                alert("Your message has been sent successfully.");
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                alert("There was an error sending your message.");
+            });  // Closing the catch block properly
+        });  // Closing the form submit event listener
     } else {
         console.error('Form element not found.');
     }
-});
+});  // Closing the DOMContentLoaded listener
 </script>
+
         <section class="u-clearfix u-section-2" id="sec-c8f1">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="custom-expanded data-layout-selected u-clearfix u-layout-wrap u-layout-wrap-1">
