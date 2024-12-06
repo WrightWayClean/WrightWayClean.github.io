@@ -2,6 +2,8 @@ require('dotenv').config();
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event, context) => {
+    console.log('Function triggered successfully');
+    
     try {
         // Log raw event.body to check the format of incoming data
         console.log('Raw body:', event.body);
