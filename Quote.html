@@ -115,10 +115,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         const form = document.getElementById("quote-form");
 
-        // Unbind any existing event listeners (if using vanilla JS for submission)
-        form.removeEventListener('submit', handleSubmit);  // Just in case there's an existing listener
-
-        // Bind the custom form submission handler
+        // Directly bind the custom form submission handler
         form.addEventListener("submit", handleSubmit);
     });
 
