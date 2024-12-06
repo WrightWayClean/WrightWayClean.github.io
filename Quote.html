@@ -96,9 +96,16 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('quote-form');
+    const submitButton = form.querySelector('input[type="submit"]');
+
+    // Disable the submit button after submission to prevent double submission
+    submitButton.disabled = false;
 
     form.addEventListener('submit', function (e) {
         e.preventDefault(); // Prevent the default form submission
+
+        // Disable the submit button to prevent multiple submissions
+        submitButton.disabled = true;
 
         const formData = new FormData(form);
 
@@ -108,13 +115,17 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Form submitted successfully:', data); // Log successful submission
+            console.log('Form submitted successfully:', data);
             alert('Quote request submitted successfully');
-            form.reset();  // Reset form
+            form.reset();  // Reset the form
         })
         .catch(error => {
             console.error('Error:', error);
             alert('There was an issue submitting your quote request. Please try again later.');
+        })
+        .finally(() => {
+            // Re-enable the submit button after submission is complete
+            submitButton.disabled = false;
         });
     });
 });
