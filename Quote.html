@@ -96,10 +96,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('quote-form');
-    
-    // Prevent any other form submit handlers from running
-    form.removeEventListener('submit', handleFormSubmit);
-    
+
     form.addEventListener('submit', function (e) {
         e.preventDefault(); // Prevent the default form submission
 
