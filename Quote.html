@@ -115,7 +115,13 @@
     document.addEventListener("DOMContentLoaded", function() {
         const form = document.getElementById("quote-form");
 
-        // Directly bind the custom form submission handler
+        // Try to unbind any existing event listeners (including ones from nicepage.js)
+        if (form) {
+            // Attempt to clean up any event listeners added by nicepage.js
+            form.removeEventListener("submit", handleSubmit);
+        }
+
+        // Directly bind the custom form submission handler using vanilla JS
         form.addEventListener("submit", handleSubmit);
     });
 
@@ -134,6 +140,7 @@
         console.log('Fetching form data...');
         console.log('Form data:', formObject);
 
+        // Custom fetch request to submit the form data
         fetch(form.action, {
             method: 'POST',
             headers: {
