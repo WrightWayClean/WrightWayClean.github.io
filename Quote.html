@@ -115,15 +115,15 @@
     document.addEventListener("DOMContentLoaded", function() {
         const form = document.getElementById("quote-form");
 
-        // Unbind all event handlers (including ones from Nicepage.js) using jQuery
-        $(form).off('submit');  // This removes any submit event listeners attached to the form
+        // Unbind any existing event listeners (if using vanilla JS for submission)
+        form.removeEventListener('submit', handleSubmit);  // Just in case there's an existing listener
 
-        // Now bind your custom form submission handler using vanilla JavaScript
+        // Bind the custom form submission handler
         form.addEventListener("submit", handleSubmit);
     });
 
     function handleSubmit(event) {
-        event.preventDefault();  // Prevent default form submission
+        event.preventDefault();  // Prevent the default form submission
 
         const form = event.target;
 
