@@ -201,20 +201,38 @@ c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
     <section class="u-backlink u-clearfix u-grey-80">
     </section>
 	  <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("quote-form");
-    const submitButton = form.querySelector('input[type="submit"]');
+$(document).ready(function () {
+    const form = $("#quote-form");
+    form.off("submit"); // Remove all existing submit handlers
+    form.on("submit", function (event) {
+        event.preventDefault();
 
-    if (submitButton) {
-        submitButton.addEventListener("click", function (event) {
-            console.log("Submit button clicked");
-            event.stopPropagation(); // Stop propagation to `nicepage.js`
-        });
-    }
+        const formData = $(this).serializeArray();
+        console.log("Serialized form data:", formData);
 
-    if (form) {
-        form.addEventListener("submit", handleSubmit);
-    }
+        fetch(form.attr("action"), {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(Object.fromEntries(formData.map(({ name, value }) => [name, value]))),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Server responded with status ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log("Response data:", data);
+                alert("Your quote request has been sent successfully!");
+                form[0].reset();
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again.");
+            });
+    });
 });
   </script>
 </body>
