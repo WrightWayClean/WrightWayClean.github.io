@@ -1,4 +1,6 @@
+require('dotenv').config();
 const nodemailer = require('nodemailer');
+
 exports.handler = async (event, context) => {
     console.log('Function triggered successfully');
     
