@@ -12,6 +12,19 @@ exports.handler = async (event, context) => {
         const data = JSON.parse(event.body);
         console.log('Parsed data:', data);
 
+        const data = JSON.parse(event.body);
+    console.log('Parsed data:', data);
+
+    // Honeypot field check
+    if (data['bot-field']) {
+    console.warn('Bot submission detected, ignoring.');
+    return {
+        statusCode: 200,
+        body: JSON.stringify({ message: 'Submission received.' }),
+    };
+    }
+
+
         const { name1, name2, email, phone, businessName, businessCity, message } = data;
 
         // Check for missing fields
