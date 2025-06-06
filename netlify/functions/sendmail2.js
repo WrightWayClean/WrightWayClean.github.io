@@ -41,7 +41,7 @@ exports.handler = async (event, context) => {
         // Define mail options
         const mailOptions = {
             from: email,
-            to: 'wrightwaycleanid@gmail.com',
+            to: 'EXAMPLE@YOUREMAILHERE.COM', // TODO: Replace with your email address
             subject: `Message from ${name1}`,
             text: `
                 First name: ${name1}
