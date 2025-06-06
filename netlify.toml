@@ -3,3 +3,7 @@
   to = "https://wrightwaycleanid.com/:splat"
   status = 301
   force = true
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Nf-Image-Transform = "none"
