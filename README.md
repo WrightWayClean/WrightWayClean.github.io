@@ -12,3 +12,9 @@
 | `{{FACEBOOK}}`        | Username on facebook   | ExampleCleaningCo1   |
 | `{{INSTAGRAM}}`        | Username on instagram  | ExampleCleaningCo1   |
 | `{{ALT_TEXT}}`        | Image Alt Text   | Image of a white screen with "your logo here" in black    |
+
+
+**Note:**  
+- Be sure to check all pages for any leftover `TODO` comments and replace them accordingly.  
+- Replace all placeholder image files in the `/images` folder with your own branding images.  
+- Update the `netlify.toml` file’s redirect `from` URL to your actual Netlify site URL before deploying.
