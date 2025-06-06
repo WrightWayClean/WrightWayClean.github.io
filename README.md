@@ -1,10 +1,11 @@
 Thank you for purchasing the WrightWayCleanID.com website package. This README is designed to guide you through customizing and setting up the website for your own cleaning company.
 This package is provided as a complete, ready-to-deploy solution for your company’s online presence.
 
-If you have any questions during setup, please refer to the detailed instructions provided or reach out to the seller for assistance - we're happy to assist if you need any help customizing or launching your new site.
+If you have any questions during setup, please refer to the detailed instructions provided or reach out to the seller for assistance — we’re happy to assist if you need any help customizing or launching your new site.
 
-The table below explains the placeholders (denoted by {{ }}) used throughout the site’s code, showing what each tag represents and how to update it to fit your branding and information. 
+The table below explains the placeholders (denoted by {{ }}) used throughout the site’s code, showing what each tag represents and how to update it to fit your branding and information.
 Please update all placeholders to ensure your company details are accurate before publishing.
+
 
 
 | Placeholder         | Description                          | Example                    |
@@ -23,7 +24,7 @@ Please update all placeholders to ensure your company details are accurate befor
 | `{{ALT_TEXT}}`        | Image Alt Text   | Image of a white screen with "your logo here" in black    |
 
 
-**Note:**  
-- Be sure to check all HTML pages for any leftover `TODO` comments and replace them accordingly.  
-- Replace all placeholder image files in the `/images` folder with your own branding images.  
-- Update the `netlify.toml` file’s redirect `from` URL to your actual Netlify site URL before deploying.
+NOTE:
+-Be sure to check all HTML pages for any leftover TODO comments and replace them accordingly.
+-Replace all placeholder image files in the /images folder with your own branding images.
+-Update the netlify.toml file’s redirect from URL to your actual Netlify site URL before deploying.
