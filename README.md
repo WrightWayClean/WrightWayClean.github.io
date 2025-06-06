@@ -24,6 +24,6 @@ Please update all placeholders to ensure your company details are accurate befor
 
 
 **Note:**  
-- Be sure to check all pages for any leftover `TODO` comments and replace them accordingly.  
+- Be sure to check all HTML pages for any leftover `TODO` comments and replace them accordingly.  
 - Replace all placeholder image files in the `/images` folder with your own branding images.  
 - Update the `netlify.toml` file’s redirect `from` URL to your actual Netlify site URL before deploying.
